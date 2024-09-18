@@ -4,19 +4,19 @@ import { characters, period_month } from '../utils/constants';
 import { HeroInfo } from '../utils/types';
 
 interface AboutMeProps {
-  heroId: string
+  heroId?: string
 }
 
 const AboutMe = ({heroId}: AboutMeProps) => {
   const [hero, setHero] = useState<HeroInfo>();
 
   useEffect(() => {
-    const hero = JSON.parse(localStorage.getItem(heroId)!);
+    const hero = JSON.parse(localStorage.getItem(heroId!)!);
     if (hero && ((Date.now() - hero.time) < period_month)) {
       setHero(hero.payload)
     }
     else {
-      fetch(characters[heroId].url)
+      fetch(characters[heroId!].url)
         .then(response => response.json())
         .then(data => {
           const info = {
@@ -30,7 +30,7 @@ const AboutMe = ({heroId}: AboutMeProps) => {
             eye_color: data.eye_color
           }
           setHero(info);
-          localStorage.setItem(heroId, JSON.stringify({
+          localStorage.setItem(heroId!, JSON.stringify({
             time: Date.now(),
             payload: info
           }))

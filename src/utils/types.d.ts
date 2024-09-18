@@ -1,6 +1,6 @@
 export interface SWContextValue {
-    changeHero: (hero: string) => void,
-    hero: string
+    changeHero: (hero?: string) => void,
+    hero?: string
 }
 
 export interface HeroInfo {

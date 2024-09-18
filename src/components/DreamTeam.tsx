@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { friends } from '../utils/constants'
-import Friend from './Friend'
 import { SWContext } from '../utils/context'
+import Friend from './Friend'
 
 
 const DreamTeam = () => {

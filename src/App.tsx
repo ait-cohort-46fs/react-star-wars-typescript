@@ -8,7 +8,7 @@ import { SWContext } from './utils/context'
 
 
 function App() {
-  const [hero, setHero] = useState(defaultHero)
+  const [hero, setHero] = useState<string | undefined>(defaultHero)
 
   return (
     <div>
